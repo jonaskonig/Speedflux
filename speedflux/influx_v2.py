@@ -15,7 +15,7 @@ class Influx_v2:
     @property
     def client(self):
         if not self._client:
-            self._client = InfluxDBClient(url="http://"+self.config.INFLUX_DB_ADDRESS+":"+self.config.INFLUX_DB_PORT, token=self.config.INFLUX_DB_TOKEN, org=self.config.INFLUX_DB_ORG)
+            self._client = InfluxDBClient(url="http://"+self.config.INFLUX_DB_ADDRESS+":"+str(self.config.INFLUX_DB_PORT), token=self.config.INFLUX_DB_TOKEN, org=self.config.INFLUX_DB_ORG)
             speedflux.LOG.debug("Client established")
         return self._client
 
