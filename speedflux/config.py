@@ -7,9 +7,13 @@ import re
 _CONFIG_DEFAULTS = {
     'NAMESPACE': (str, 'Database', None),
     'INFLUX_DB_ADDRESS': (str, 'Database', 'influxdb'),
+    'INFLUX_DB_VERSION' : (str, 'Databas', 'V1'),
     'INFLUX_DB_PORT': (int, 'Database', 8086),
     'INFLUX_DB_USER': (str, 'Database', None),
     'INFLUX_DB_PASSWORD': (str, 'Database', None),
+    'INFLUX_DB_TOKEN' : (str, 'Database', None),
+    'INFLUX_DB_ORG' : (str, 'Database', None),
+    'INFLUX_DB_BUCKET' : (str, 'Database', None),
     'INFLUX_DB_DATABASE': (str, 'Database', 'speedtests'),
     'INFLUX_DB_TAGS': (str, 'Database', None),
     'SPEEDTEST_INTERVAL': (int, 'SpeedTest', 180),

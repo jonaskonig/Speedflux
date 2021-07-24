@@ -1,4 +1,4 @@
-from speedflux import config, logs, influx
+from speedflux import config, logs, influx, influx_v2
 
 # Speedflux
 CONFIG = None
@@ -21,6 +21,9 @@ def initialize():
     except Exception as err:
         raise SystemExit("Couldn't initiate logging", err)
     try:
-        INFLUXDB = influx.Influx(CONFIG)
+        if(CONFIG.INFLUX_DB_VERSION=="V2"):
+            INFLUXDB = influx_v2.Influx_v2(CONFIG)
+        else:
+            INFLUXDB = influx.Influx(CONFIG)
     except Exception as err:
         raise SystemExit("Couldn't initiate InfluxDB <2", err)
