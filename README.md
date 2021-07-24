@@ -1,5 +1,5 @@
 
-
+# Fork from SpeedFlux to add Support for Influx V2
 
 # SpeedFlux <img src='https://user-images.githubusercontent.com/3665468/119735610-974a0500-be4a-11eb-9149-dd12ceee03df.png' width='75'>
 ---
@@ -36,11 +36,15 @@ The InfluxDB connection settings are controlled by environment variables.
 
 The variables available are:
 - NAMESPACE = default - None
+- INFLUX_DB_VERSION = default - V1 - Set V2 to use Influx V2
 - INFLUX_DB_ADDRESS = default - influxdb
 - INFLUX_DB_PORT = default - 8086
-- INFLUX_DB_USER = default - {blank}
-- INFLUX_DB_PASSWORD = default - {blank}
-- INFLUX_DB_DATABASE = default - speedtests
+- INFLUX_DB_USER = default - {blank} - Only for Influx V1
+- INFLUX_DB_PASSWORD = default - {blank} - Only for Influx V1
+- INFLUX_DB_DATABASE = default - speedtests - Only For Influx V1
+- INFLUX_DB_ORG = default - {blank} - Only for Influx V2
+- INFLUX_DB_TOKEN = default - {blank} - Only for Influx V2
+- INFLUX_DB_BUCKET = default {blank} - Only for Influx V2
 - INFLUX_DB_TAGS = default - None * See below for options, '*' widcard for all *
 - SPEEDTEST_INTERVAL = default - 5 (minutes)
 - SPEEDTEST_SERVER_ID = default - {blank} * id from https://c.speedtest.net/speedtest-servers-static.php *
