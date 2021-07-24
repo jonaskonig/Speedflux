@@ -130,7 +130,7 @@ class Influx_v2:
     def write(self, data, data_type='Speedtest'):
         try:
             write_api = self.client.write_api(write_options=SYNCHRONOUS)
-            write_api.write(self.config.INFLUX_DB_BUCKET, self.config.INFLUX_DB_ORG, data)
+            write_api.write(bucket = self.config.INFLUX_DB_BUCKET, record=data)
             speedflux.LOG.info(F"{data_type} data written successfully")
             speedflux.LOG.debug(F"Wrote `{data}` to Influx")
             self.retries = 0
