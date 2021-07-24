@@ -15,8 +15,8 @@ class Influx_v2:
     @property
     def client(self):
         if not self._client:
-            self._client = InfluxDBClient(url=self.config.INFLUX_DB_ADDRESS+":"+self.config.INFLUX_DB_PORT, token=self.config.INFLUX_DB_TOKEN, org=self.config.INFLUX_DB_ORG)
-            speedflux.LOG.debug("Client extablished")
+            self._client = InfluxDBClient(url="http://"+self.config.INFLUX_DB_ADDRESS+":"+self.config.INFLUX_DB_PORT, token=self.config.INFLUX_DB_TOKEN, org=self.config.INFLUX_DB_ORG)
+            speedflux.LOG.debug("Client established")
         return self._client
 
     def format_data(self, data):
@@ -130,6 +130,7 @@ class Influx_v2:
     def write(self, data, data_type='Speedtest'):
         try:
             write_api = self.client.write_api(write_options=SYNCHRONOUS)
+
             if write_api.write(bucket = self.config.INFLUX_DB_BUCKET, record=data):
                 speedflux.LOG.info(F"{data_type} data written successfully")
                 speedflux.LOG.debug(F"Wrote `{data}` to Influx")
